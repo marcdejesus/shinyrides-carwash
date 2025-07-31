@@ -1,0 +1,243 @@
+/* Floating Bubbles Animation */
+.bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    background: radial-gradient(circle, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+.bubble-1 {
+    width: 60px;
+    height: 60px;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 20s;
+}
+
+.bubble-2 {
+    width: 40px;
+    height: 40px;
+    left: 20%;
+    animation-delay: 2s;
+    animation-duration: 18s;
+}
+
+.bubble-3 {
+    width: 80px;
+    height: 80px;
+    left: 35%;
+    animation-delay: 4s;
+    animation-duration: 25s;
+}
+
+.bubble-4 {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    animation-delay: 6s;
+    animation-duration: 22s;
+}
+
+.bubble-5 {
+    width: 70px;
+    height: 70px;
+    left: 65%;
+    animation-delay: 8s;
+    animation-duration: 19s;
+}
+
+.bubble-6 {
+    width: 45px;
+    height: 45px;
+    left: 80%;
+    animation-delay: 10s;
+    animation-duration: 21s;
+}
+
+.bubble-7 {
+    width: 55px;
+    height: 55px;
+    left: 90%;
+    animation-delay: 12s;
+    animation-duration: 23s;
+}
+
+.bubble-8 {
+    width: 65px;
+    height: 65px;
+    left: 5%;
+    animation-delay: 14s;
+    animation-duration: 24s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade In Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations to elements */
+.hero-content {
+    animation: fadeInLeft 1s ease-out;
+}
+
+.hero-image {
+    animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.feature-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.benefit-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Hover Effects */
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Mobile Menu Animation */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Staggered Animation for Grid Items */
+.features-grid .feature-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.features-grid .feature-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.features-grid .feature-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.benefits-grid .benefit-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.benefits-grid .benefit-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.benefits-grid .benefit-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.nav-link:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .bubble {
+        display: none;
+    }
+} 

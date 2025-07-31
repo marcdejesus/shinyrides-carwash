@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact ShinyRides Car Wash for appointments, inquiries, or questions. Visit our location or reach us by phone and email.">
+    <meta name="keywords" content="contact car wash, car wash location, car wash hours, car wash phone number">
+    <title>Contact Us - ShinyRides Car Wash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Background Bubbles Animation -->
+    <div class="bubble-container">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+        <div class="bubble bubble-5"></div>
+        <div class="bubble bubble-6"></div>
+        <div class="bubble bubble-7"></div>
+        <div class="bubble bubble-8"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>ShinyRides</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="washes.html" class="nav-link">Washes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="detailing.html" class="nav-link">Detailing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Get in Touch</h1>
+                <p class="hero-subtitle">We're here to help! Contact us for appointments, questions, or to learn more about our services. We look forward to hearing from you.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Contact Form</a>
+                    <a href="#location" class="btn btn-secondary">Visit Us</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder-image">
+                    <p>Contact Us Image</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Reach out to us through any of these channels. We're here to help with all your car care needs.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <p>(555) 123-4567</p>
+                                <span>Available during business hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>info@shinyrides.com</p>
+                                <span>We respond within 24 hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h3>Address</h3>
+                                <p>123 Car Wash Lane<br>City, State 12345</p>
+                                <span>Conveniently located off Highway 101</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="basic-wash">Basic Wash</option>
+                                <option value="premium-wash">Premium Wash</option>
+                                <option value="deluxe-wash">Deluxe Wash</option>
+                                <option value="interior-detailing">Interior Detailing</option>
+                                <option value="exterior-detailing">Exterior Detailing</option>
+                                <option value="engine-cleaning">Engine Cleaning</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your car care needs..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-detail" id="location">
+        <div class="container">
+            <h2 class="section-title">Visit Our Location</h2>
+            <p class="section-subtitle">Conveniently located with easy access from major roads and highways.</p>
+            
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Our Facility</h3>
+                    <p>Our state-of-the-art car wash facility is designed for your convenience and comfort. We offer both self-service and full-service options to meet your needs.</p>
+                    
+                    <div class="location-features">
+                        <div class="location-feature">
+                            <h4>🚗 Drive-Thru Service</h4>
+                            <p>Quick and convenient automated wash</p>
+                        </div>
+                        <div class="location-feature">
+                            <h4>🅿️ Free Parking</h4>
+                            <p>Plenty of parking while you wait</p>
+                        </div>
+                        <div class="location-feature">
+                            <h4>☕ Waiting Area</h4>
+                            <p>Comfortable seating with refreshments</p>
+                        </div>
+                        <div class="location-feature">
+                            <h4>📱 Free WiFi</h4>
+                            <p>Stay connected while we work</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-map">
+                    <div class="map-placeholder">
+                        <p>Interactive Map Placeholder</p>
+                        <p>123 Car Wash Lane, City, State 12345</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operating Hours Section -->
+    <section class="hours">
+        <div class="container">
+            <h2 class="section-title">Operating Hours</h2>
+            <p class="section-subtitle">We're open 7 days a week to serve your car care needs.</p>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Monday - Friday</h3>
+                    <div class="hours-time">7:00 AM - 9:00 PM</div>
+                    <p>Extended hours for your convenience</p>
+                </div>
+                
+                <div class="hours-card">
+                    <h3>Saturday</h3>
+                    <div class="hours-time">8:00 AM - 8:00 PM</div>
+                    <p>Weekend service available</p>
+                </div>
+                
+                <div class="hours-card">
+                    <h3>Sunday</h3>
+                    <div class="hours-time">9:00 AM - 6:00 PM</div>
+                    <p>Relaxed Sunday hours</p>
+                </div>
+                
+                <div class="hours-card featured">
+                    <h3>Holiday Hours</h3>
+                    <div class="hours-time">Call for Details</div>
+                    <p>Modified hours on major holidays</p>
+                </div>
+            </div>
+            
+            <div class="hours-note">
+                <p><strong>Note:</strong> Last wash starts 30 minutes before closing. Detailing services require advance booking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Book your car wash today or visit us to experience our professional service.</p>
+            <div class="cta-buttons">
+                <a href="washes.html" class="btn btn-primary">View Services</a>
+                <a href="tel:5551234567" class="btn btn-secondary">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShinyRides</h3>
+                    <p>Professional car care services with a commitment to quality and environmental responsibility.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="washes.html">Car Washes</a></li>
+                        <li><a href="detailing.html">Auto Detailing</a></li>
+                        <li><a href="detailing.html">Interior Cleaning</a></li>
+                        <li><a href="detailing.html">Exterior Protection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Locations</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@shinyrides.com</p>
+                    <p>Address: 123 Car Wash Lane<br>City, State 12345</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShinyRides Car Wash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
