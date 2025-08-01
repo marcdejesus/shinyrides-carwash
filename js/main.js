@@ -203,7 +203,8 @@ function fadeInElement(element, delay = 0) {
 
 // Initialize tooltips if needed
 function initTooltips() {
-    const tooltipElements = document.querySelectorAll('[data-tooltip]');
+    // Only target tooltips within the facility-features section
+    const tooltipElements = document.querySelectorAll('.facility-features [data-tooltip]');
     
     tooltipElements.forEach(element => {
         element.addEventListener('mouseenter', (e) => {
