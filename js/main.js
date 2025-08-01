@@ -240,73 +240,88 @@ function initTooltips() {
 // Initialize tooltips on page load
 document.addEventListener('DOMContentLoaded', initTooltips);
 
-// Mobile video playback fixes
+// Mobile video/GIF background fixes
 function initMobileVideo() {
     const video = document.querySelector('.hero-video-background video');
-    if (!video) return;
-
-    // Check if device is mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const gif = document.querySelector('.hero-background-gif');
     
-    if (isMobile) {
-        // Ensure video is muted for mobile autoplay (required by most mobile browsers)
-        video.muted = true;
+    // Handle video if present
+    if (video) {
+        // Check if device is mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
-        // Add webkit-specific attributes for iOS
-        video.setAttribute('webkit-playsinline', 'true');
-        video.setAttribute('playsinline', 'true');
-        
-        // Force video to load
-        video.load();
-        
-        // Multiple attempts to autoplay with different strategies
-        const attemptAutoplay = async () => {
-            try {
-                // First attempt: direct play
-                await video.play();
-                console.log('Video autoplay successful on mobile');
-            } catch (error) {
-                console.log('First autoplay attempt failed, trying alternative method');
-                
+        if (isMobile) {
+            // Ensure video is muted for mobile autoplay (required by most mobile browsers)
+            video.muted = true;
+            
+            // Add webkit-specific attributes for iOS
+            video.setAttribute('webkit-playsinline', 'true');
+            video.setAttribute('playsinline', 'true');
+            
+            // Force video to load
+            video.load();
+            
+            // Multiple attempts to autoplay with different strategies
+            const attemptAutoplay = async () => {
                 try {
-                    // Second attempt: ensure muted and try again
-                    video.muted = true;
-                    video.volume = 0;
+                    // First attempt: direct play
                     await video.play();
-                    console.log('Video autoplay successful on second attempt');
-                } catch (secondError) {
-                    console.log('Second autoplay attempt failed, setting up interaction fallback');
+                    console.log('Video autoplay successful on mobile');
+                } catch (error) {
+                    console.log('First autoplay attempt failed, trying alternative method');
                     
-                    // Set up fallback for user interaction
-                    const playOnInteraction = async () => {
-                        try {
-                            await video.play();
-                            console.log('Video started on user interaction');
-                        } catch (e) {
-                            console.log('Failed to play on interaction:', e);
-                        }
-                        // Remove listeners after successful play
-                        document.removeEventListener('touchstart', playOnInteraction);
-                        document.removeEventListener('click', playOnInteraction);
-                        document.removeEventListener('scroll', playOnInteraction);
-                    };
-                    
-                    // Listen for various user interactions
-                    document.addEventListener('touchstart', playOnInteraction, { once: true });
-                    document.addEventListener('click', playOnInteraction, { once: true });
-                    document.addEventListener('scroll', playOnInteraction, { once: true });
+                    try {
+                        // Second attempt: ensure muted and try again
+                        video.muted = true;
+                        video.volume = 0;
+                        await video.play();
+                        console.log('Video autoplay successful on second attempt');
+                    } catch (secondError) {
+                        console.log('Second autoplay attempt failed, setting up interaction fallback');
+                        
+                        // Set up fallback for user interaction
+                        const playOnInteraction = async () => {
+                            try {
+                                await video.play();
+                                console.log('Video started on user interaction');
+                            } catch (e) {
+                                console.log('Failed to play on interaction:', e);
+                            }
+                            // Remove listeners after successful play
+                            document.removeEventListener('touchstart', playOnInteraction);
+                            document.removeEventListener('click', playOnInteraction);
+                            document.removeEventListener('scroll', playOnInteraction);
+                        };
+                        
+                        // Listen for various user interactions
+                        document.addEventListener('touchstart', playOnInteraction, { once: true });
+                        document.addEventListener('click', playOnInteraction, { once: true });
+                        document.addEventListener('scroll', playOnInteraction, { once: true });
+                    }
                 }
-            }
-        };
+            };
+            
+            // Start autoplay attempt
+            attemptAutoplay();
+            
+            // Additional attempt when page becomes visible (for background tabs)
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && video.paused) {
+                    setTimeout(attemptAutoplay, 100);
+                }
+            });
+        }
+    }
+    
+    // Handle GIF if present
+    if (gif) {
+        // Ensure GIF loads properly on mobile
+        gif.addEventListener('load', () => {
+            console.log('GIF background loaded successfully');
+        });
         
-        // Start autoplay attempt
-        attemptAutoplay();
-        
-        // Additional attempt when page becomes visible (for background tabs)
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden && video.paused) {
-                setTimeout(attemptAutoplay, 100);
-            }
+        gif.addEventListener('error', () => {
+            console.log('GIF background failed to load');
         });
     }
 }
