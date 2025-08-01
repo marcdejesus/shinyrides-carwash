@@ -238,4 +238,50 @@ function initTooltips() {
 }
 
 // Initialize tooltips on page load
-document.addEventListener('DOMContentLoaded', initTooltips); 
+document.addEventListener('DOMContentLoaded', initTooltips);
+
+// Mobile video playback fixes
+function initMobileVideo() {
+    const video = document.querySelector('.hero-video-background video');
+    if (!video) return;
+
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Force video to load and play on mobile
+        video.load();
+        
+        // Handle video play promise for mobile browsers
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Video started playing successfully
+                console.log('Video playing on mobile');
+            }).catch(error => {
+                // Auto-play was prevented, try to play on user interaction
+                console.log('Auto-play prevented, waiting for user interaction');
+                
+                const playOnInteraction = () => {
+                    video.play().catch(e => console.log('Still cannot play:', e));
+                    document.removeEventListener('touchstart', playOnInteraction);
+                    document.removeEventListener('click', playOnInteraction);
+                };
+                
+                document.addEventListener('touchstart', playOnInteraction);
+                document.addEventListener('click', playOnInteraction);
+            });
+        }
+        
+        // Ensure video is muted for mobile autoplay
+        video.muted = true;
+        
+        // Add webkit-specific attributes for iOS
+        video.setAttribute('webkit-playsinline', 'true');
+        video.setAttribute('playsinline', 'true');
+    }
+}
+
+// Initialize mobile video fixes
+document.addEventListener('DOMContentLoaded', initMobileVideo); 
