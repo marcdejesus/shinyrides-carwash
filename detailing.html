@@ -48,6 +48,7 @@
                     <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
+            <a href="contact.html" class="nav-cta-btn">Location & Hours</a>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -56,149 +57,142 @@
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Professional Auto Detailing</h1>
-                <p class="hero-subtitle">Transform your vehicle with our comprehensive detailing services. From interior deep cleaning to exterior protection, we bring your car back to showroom condition.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">View Services</a>
-                    <a href="contact.html" class="btn btn-secondary">Book Detailing</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="placeholder-image">
-                    <p>Auto Detailing Image</p>
-                </div>
-            </div>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcement-banner">
+        <div class="announcement-content">
+            <span class="announcement-text" id="announcement-text"></span>
         </div>
-    </section>
+    </div>
 
-    <!-- Interior Detailing Section -->
-    <section class="service-detail" id="services">
+    <!-- Pricing Section -->
+    <section class="pricing">
         <div class="container">
-            <div class="service-content">
-                <div class="service-info">
-                    <h2>Interior Detailing</h2>
-                    <p class="service-description">Complete interior restoration that removes years of dirt, stains, and odors. Our professional interior detailing service brings your vehicle's cabin back to like-new condition.</p>
-                    <div class="service-features">
-                        <h3>Service Includes:</h3>
-                        <ul>
-                            <li>Complete vacuum and dust removal</li>
-                            <li>Dashboard and console deep cleaning</li>
-                            <li>Seat and upholstery cleaning</li>
-                            <li>Leather conditioning and protection</li>
-                            <li>Window and mirror cleaning</li>
-                            <li>Air vent and crevice cleaning</li>
-                            <li>Odor elimination treatment</li>
-                            <li>Interior protection application</li>
-                        </ul>
-                    </div>
-                    <div class="service-price">Starting at $75</div>
-                    <a href="contact.html" class="btn btn-primary">Book Interior Detailing</a>
+            <h2 class="section-title">Detailing Services & Pricing</h2>
+            <p class="section-subtitle">Professional detailing services with competitive pricing. Transform your vehicle with our expert care.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Interior Detailing</h3>
+                    <div class="price">$75</div>
+                    <p>Complete interior restoration</p>
+                    <ul>
+                        <li>Complete vacuum and dust removal</li>
+                        <li>Dashboard and console deep cleaning</li>
+                        <li>Seat and upholstery cleaning</li>
+                        <li>Leather conditioning and protection</li>
+                        <li>Window and mirror cleaning</li>
+                        <li>Air vent and crevice cleaning</li>
+                        <li>Odor elimination treatment</li>
+                        <li>Interior protection application</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Book Interior</a>
                 </div>
-                <div class="service-image">
-                    <div class="placeholder-image">
-                        <p>Interior Detailing Image</p>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Exterior Detailing</h3>
+                    <div class="price">$150</div>
+                    <p>Showroom-worthy finish</p>
+                    <ul>
+                        <li>Multi-stage paint decontamination</li>
+                        <li>Clay bar treatment</li>
+                        <li>Paint correction and scratch removal</li>
+                        <li>Wheel and tire deep cleaning</li>
+                        <li>Headlight restoration</li>
+                        <li>Trim and plastic restoration</li>
+                        <li>Ceramic coating application</li>
+                        <li>Paint protection film options</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Book Exterior</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Engine Cleaning</h3>
+                    <div class="price">$60</div>
+                    <p>Professional engine bay cleaning</p>
+                    <ul>
+                        <li>Engine bay degreasing</li>
+                        <li>Safe cleaning of electrical components</li>
+                        <li>Hose and wire cleaning</li>
+                        <li>Battery terminal cleaning</li>
+                        <li>Air filter housing cleaning</li>
+                        <li>Engine dressing application</li>
+                        <li>Corrosion protection</li>
+                        <li>Performance inspection</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Book Engine</a>
+                </div>
+            </div>
+            
+            <!-- Add-Ons Section -->
+            <div class="add-ons-section">
+                <h3>Additional Services</h3>
+                <div class="add-ons-grid">
+                    <div class="add-on-item">
+                        <span class="add-on-name">Paint Correction</span>
+                        <span class="add-on-price">$200</span>
+                    </div>
+                    <div class="add-on-item">
+                        <span class="add-on-name">Ceramic Coating</span>
+                        <span class="add-on-price">$300</span>
+                    </div>
+                    <div class="add-on-item">
+                        <span class="add-on-name">Upholstery Cleaning</span>
+                        <span class="add-on-price">$50</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Exterior Detailing Section -->
-    <section class="service-detail alt">
+    <!-- Before & After Section -->
+    <section class="before-after">
         <div class="container">
-            <div class="service-content">
-                <div class="service-image">
-                    <div class="placeholder-image">
-                        <p>Exterior Detailing Image</p>
+            <h2 class="section-title">See the Transformation</h2>
+            <p class="section-subtitle">Experience the dramatic difference professional detailing makes to your vehicle's appearance</p>
+            
+            <div class="compare-container">
+                <div class="compare-slider" id="compareSlider">
+                    <div class="compare-image-container">
+                        <!-- After image (background) -->
+                        <img src="images/after-front.webp" alt="After Detailing" class="compare-image compare-image-clean">
+                        
+                        <!-- Before image (clipped) -->
+                        <div class="compare-image-wrapper" id="dirtyImageWrapper">
+                            <img src="images/before-front.webp" alt="Before Detailing" class="compare-image compare-image-dirty">
+                        </div>
+                        
+                        <!-- Slider handle -->
+                        <div class="slider-handle" id="sliderHandle">
+                            <div class="slider-line"></div>
+                            <div class="slider-button">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Labels -->
+                        <div class="compare-labels">
+                            <span class="label-before">Before</span>
+                            <span class="label-after">After</span>
+                        </div>
                     </div>
-                </div>
-                <div class="service-info">
-                    <h2>Exterior Detailing</h2>
-                    <p class="service-description">Comprehensive exterior care that goes beyond a simple wash. Our exterior detailing service includes paint correction, protection, and restoration for a showroom-worthy finish.</p>
-                    <div class="service-features">
-                        <h3>Service Includes:</h3>
-                        <ul>
-                            <li>Multi-stage paint decontamination</li>
-                            <li>Clay bar treatment</li>
-                            <li>Paint correction and scratch removal</li>
-                            <li>Wheel and tire deep cleaning</li>
-                            <li>Headlight restoration</li>
-                            <li>Trim and plastic restoration</li>
-                            <li>Ceramic coating application</li>
-                            <li>Paint protection film options</li>
-                        </ul>
-                    </div>
-                    <div class="service-price">Starting at $150</div>
-                    <a href="contact.html" class="btn btn-primary">Book Exterior Detailing</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Engine Cleaning Section -->
-    <section class="service-detail">
+    <!-- CTA Section -->
+    <section class="cta">
         <div class="container">
-            <div class="service-content">
-                <div class="service-info">
-                    <h2>Engine Cleaning</h2>
-                    <p class="service-description">Professional engine bay cleaning that removes years of grime and buildup. Our engine cleaning service improves performance, prevents corrosion, and makes maintenance easier.</p>
-                    <div class="service-features">
-                        <h3>Service Includes:</h3>
-                        <ul>
-                            <li>Engine bay degreasing</li>
-                            <li>Safe cleaning of electrical components</li>
-                            <li>Hose and wire cleaning</li>
-                            <li>Battery terminal cleaning</li>
-                            <li>Air filter housing cleaning</li>
-                            <li>Engine dressing application</li>
-                            <li>Corrosion protection</li>
-                            <li>Performance inspection</li>
-                        </ul>
-                    </div>
-                    <div class="service-price">Starting at $60</div>
-                    <a href="contact.html" class="btn btn-primary">Book Engine Cleaning</a>
-                </div>
-                <div class="service-image">
-                    <div class="placeholder-image">
-                        <p>Engine Cleaning Image</p>
-                    </div>
-                </div>
+            <h2>Ready for a Shiny Ride?</h2>
+            <p>Book your car wash today and experience the difference professional care makes.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Location & Hours</a>
+                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
             </div>
         </div>
     </section>
-
-    <!-- Additional Services Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Additional Detailing Services</h2>
-            <p class="section-subtitle">Specialized services to meet your specific needs and preferences.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Paint Correction</h3>
-                    <p>Professional paint correction removes swirl marks, scratches, and oxidation to restore your vehicle's paint to its original glory.</p>
-                    <div class="service-price">Starting at $200</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Ceramic Coating</h3>
-                    <p>Long-lasting protection with ceramic coating that provides superior water repellency, UV protection, and chemical resistance.</p>
-                    <div class="service-price">Starting at $300</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧽</div>
-                    <h3>Upholstery Cleaning</h3>
-                    <p>Deep cleaning of seats, carpets, and upholstery to remove stains, odors, and restore fabric to like-new condition.</p>
-                    <div class="service-price">Starting at $50</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <!-- Footer -->
     <footer class="footer">
@@ -230,7 +224,7 @@
                     <h4>Contact Info</h4>
                     <p>Phone: (555) 123-4567</p>
                     <p>Email: info@shinyrides.com</p>
-                    <p>Address: 123 Car Wash Lane<br>City, State 12345</p>
+                    <p>Address: 47391 Jefferson Ave<br>Chesterfield, MI 48047</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -240,5 +234,141 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Operating hours logic
+        function checkOperatingHours() {
+            const now = new Date();
+            const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentTime = currentHour * 60 + currentMinute; // Convert to minutes
+            
+            let isOpen = false;
+            let nextOpening = '';
+            
+            // Operating hours: Mon-Sat: 8AM-7PM, Sun: 8AM-6PM
+            if (currentDay === 0) { // Sunday
+                isOpen = currentTime >= 8 * 60 && currentTime < 18 * 60; // 8AM to 6PM
+                if (!isOpen) {
+                    if (currentTime < 8 * 60) {
+                        nextOpening = '8:00 AM today';
+                    } else {
+                        nextOpening = '8:00 AM Monday';
+                    }
+                }
+            } else { // Monday-Saturday
+                isOpen = currentTime >= 8 * 60 && currentTime < 19 * 60; // 8AM to 7PM
+                if (!isOpen) {
+                    if (currentTime < 8 * 60) {
+                        nextOpening = '8:00 AM today';
+                    } else {
+                        const tomorrow = new Date(now);
+                        tomorrow.setDate(tomorrow.getDate() + 1);
+                        const tomorrowDay = tomorrow.getDay();
+                        const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                        nextOpening = `8:00 AM ${dayNames[tomorrowDay]}`;
+                    }
+                }
+            }
+            
+            return { isOpen, nextOpening };
+        }
+        
+        function updateAnnouncement() {
+            const { isOpen, nextOpening } = checkOperatingHours();
+            const announcementText = document.getElementById('announcement-text');
+            const banner = document.getElementById('announcement-banner');
+            
+            if (isOpen) {
+                announcementText.textContent = 'Now Open in Chesterfield, MI';
+                banner.classList.add('open');
+                banner.classList.remove('closed');
+            } else {
+                announcementText.textContent = `Closed - Opening ${nextOpening}`;
+                banner.classList.add('closed');
+                banner.classList.remove('open');
+            }
+        }
+        
+        // Update announcement on page load
+        updateAnnouncement();
+        
+        // Update every minute
+        setInterval(updateAnnouncement, 60000);
+        
+        // Before & After Comparison Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('compareSlider');
+            const sliderHandle = document.getElementById('sliderHandle');
+            const dirtyImageWrapper = document.getElementById('dirtyImageWrapper');
+            
+            let isDragging = false;
+            let startX = 0;
+            let startLeft = 0;
+            
+            function updateSlider(clientX) {
+                const rect = slider.getBoundingClientRect();
+                const x = clientX - rect.left;
+                const percentage = (x / rect.width) * 100;
+                const clampedPercentage = Math.max(0, Math.min(100, percentage));
+                
+                sliderHandle.style.left = clampedPercentage + '%';
+                dirtyImageWrapper.style.width = clampedPercentage + '%';
+            }
+            
+            function handleStart(e) {
+                isDragging = true;
+                startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+                startLeft = parseFloat(sliderHandle.style.left) || 50;
+                
+                document.addEventListener('mousemove', handleMove);
+                document.addEventListener('mouseup', handleEnd);
+                document.addEventListener('touchmove', handleMove);
+                document.addEventListener('touchend', handleEnd);
+            }
+            
+            function handleMove(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                
+                const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+                updateSlider(clientX);
+            }
+            
+            function handleEnd() {
+                isDragging = false;
+                
+                document.removeEventListener('mousemove', handleMove);
+                document.removeEventListener('mouseup', handleEnd);
+                document.removeEventListener('touchmove', handleMove);
+                document.removeEventListener('touchend', handleEnd);
+            }
+            
+            // Mouse events
+            sliderHandle.addEventListener('mousedown', handleStart);
+            
+            // Touch events for mobile
+            sliderHandle.addEventListener('touchstart', handleStart);
+            
+            // Hover effect for desktop
+            slider.addEventListener('mousemove', function(e) {
+                if (!isDragging) {
+                    updateSlider(e.clientX);
+                }
+            });
+            
+            // Remove auto-reset behavior - slider stays where user leaves it
+            // slider.addEventListener('mouseleave', function() {
+            //     if (!isDragging) {
+            //         sliderHandle.style.left = '100%';
+            //         dirtyImageWrapper.style.width = '100%';
+            //     }
+            // });
+            
+            // Initialize at 100% (fully on the right, showing only dirty car)
+            sliderHandle.style.left = '100%';
+            dirtyImageWrapper.style.width = '100%';
+        });
+    </script>
 </body>
 </html> 

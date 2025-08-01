@@ -13,17 +13,7 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- Background Bubbles Animation -->
-    <div class="bubble-container">
-        <div class="bubble bubble-1"></div>
-        <div class="bubble bubble-2"></div>
-        <div class="bubble bubble-3"></div>
-        <div class="bubble bubble-4"></div>
-        <div class="bubble bubble-5"></div>
-        <div class="bubble bubble-6"></div>
-        <div class="bubble bubble-7"></div>
-        <div class="bubble bubble-8"></div>
-    </div>
+    
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -48,6 +38,7 @@
                     <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
+            <a href="contact.html" class="nav-cta-btn">Location & Hours</a>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -56,92 +47,162 @@
         </div>
     </nav>
 
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcement-banner">
+        <div class="announcement-content">
+            <span class="announcement-text" id="announcement-text"></span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Video Background for Hero Only -->
+        <div class="hero-video-background">
+            <video autoplay muted loop playsinline>
+                <source src="videos/wash.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
+        
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Professional Car Care That Shines</h1>
-                <p class="hero-subtitle">Experience the difference with our state-of-the-art car wash technology and eco-friendly solutions. Your vehicle deserves the best care.</p>
+                <h1 class="hero-title">Professional Car Care That <em>Shines</em></h1>
+                <p class="hero-subtitle">Local, Family-Operated Car Wash with Guaranteed Quality Service</p>
                 <div class="hero-buttons">
-                    <a href="washes.html" class="btn btn-primary">View Packages</a>
-                    <a href="contact.html" class="btn btn-secondary">Book Now</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="placeholder-image">
-                    <p>Car Wash Image Placeholder</p>
+                    <a href="contact.html" class="btn btn-primary">Location & Hours</a>
+                    <a href="washes.html" class="btn btn-secondary">Services</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Shiny Ride Guarantee -->
+    <section class="shiny-ride-guarantee">
         <div class="container">
-            <h2 class="section-title">Advanced Car Wash Technology</h2>
-            <p class="section-subtitle">We use cutting-edge equipment and eco-friendly products to deliver exceptional results every time.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚗</div>
-                    <h3>Touchless Technology</h3>
-                    <p>Advanced sensors and precision cleaning systems ensure your vehicle gets a thorough wash without any physical contact.</p>
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2>The Shiny Ride Guarantee</h2>
+                    <p>At Shiny Rides, our guarantee is our commitment to a higher standard of clean. We finish every wash with a careful hand-cleaning process because we know that's what it takes to deliver a flawless, showroom-quality shine. It's not just clean; it's a guaranteed shiny ride.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Eco-Friendly Solutions</h3>
-                    <p>Biodegradable cleaning products that protect your car and the environment while delivering superior results.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Quick & Efficient</h3>
-                    <p>Our automated systems complete a full wash cycle in minutes, saving you time without compromising quality.</p>
+                <div class="banner-image">
+                    <img src="images/car-wash-wipe-down.webp" alt="Professional Car Care">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
+    <!-- Facility Features Section -->
+    <section class="facility-features">
         <div class="container">
-            <h2 class="section-title">Why Choose ShinyRides?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Convenience</h3>
-                    <p>Drive-thru service with no appointment needed. Open 7 days a week with extended hours for your busy schedule.</p>
+            <h2 class="section-title">Features</h2>
+            <div class="facility-features-grid">
+                <div class="facility-feature-item" data-tooltip="Advanced triple foam system that gently cleans and conditions your vehicle's paint surface">
+                    <img src="icons/wash.svg" alt="Triple Foam Conditioner">
+                    <h3>Triple Foam Conditioner</h3>
                 </div>
-                <div class="benefit-card">
-                    <h3>Quality</h3>
-                    <p>Professional-grade equipment and trained staff ensure your vehicle receives the highest quality care possible.</p>
+                <div class="facility-feature-item" data-tooltip="High-pressure undercarriage wash to remove road salt, dirt, and debris from hard-to-reach areas">
+                    <img src="icons/underbody.svg" alt="Under Body Wash">
+                    <h3>Under Body Wash</h3>
                 </div>
-                <div class="benefit-card">
-                    <h3>Eco-Friendliness</h3>
-                    <p>Water-saving technology and environmentally safe products help protect our planet while caring for your car.</p>
+                <div class="facility-feature-item" data-tooltip="Specialized treatment to safely remove bugs, tar, and other stubborn contaminants">
+                    <img src="icons/sponge.svg" alt="Bug Removal">
+                    <h3>Bug Removal</h3>
+                </div>
+                <div class="facility-feature-item" data-tooltip="Professional hand drying with microfiber towels to prevent water spots and streaks">
+                    <img src="icons/wipedown.svg" alt="Hand Dry">
+                    <h3>Hand Dry</h3>
+                </div>
+                <div class="facility-feature-item" data-tooltip="Complete tire cleaning and application of protective shine for a like-new appearance">
+                    <img src="icons/shine.svg" alt="Tire Clean & Shine">
+                    <h3>Tire Clean & Shine</h3>
+                </div>
+                <div class="facility-feature-item" data-tooltip="Premium wax application that provides long-lasting protection and brilliant shine">
+                    <img src="icons/shiny-ride.svg" alt="Wax Shine">
+                    <h3>Wax Shine</h3>
+                </div>
+                <div class="facility-feature-item" data-tooltip="Complimentary vacuum stations to clean your vehicle's interior at no additional cost">
+                    <img src="icons/vacuum.svg" alt="Free Vacuums">
+                    <h3>Free Vacuums</h3>
+                </div>
+                <div class="facility-feature-item" data-tooltip="Professional interior cleaning services including upholstery, dashboard, and glass detailing">
+                    <img src="icons/detail.svg" alt="Interior Detailing Services">
+                    <h3>Interior Detailing Services</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location">
+    
+     <!-- Contact Section -->
+     <section class="contact" id="contact">
         <div class="container">
-            <div class="location-content">
-                <h2>Visit Our Location</h2>
-                <p>Conveniently located in the heart of the city, our car wash is easily accessible from major highways and local roads.</p>
-                <div class="location-details">
-                    <div class="location-item">
-                        <strong>Address:</strong> 123 Car Wash Lane, City, State 12345
-                    </div>
-                    <div class="location-item">
-                        <strong>Hours:</strong> Mon-Sun: 7:00 AM - 9:00 PM
-                    </div>
-                    <div class="location-item">
-                        <strong>Phone:</strong> (555) 123-4567
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Reach out to us through any of these channels. We're here to help with all your car care needs.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <img src="icons/phone.svg" alt="Phone" width="24" height="24">
+                            </div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <p>(555) 123-4567</p>
+                                <span>Available during business hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <img src="icons/mail.svg" alt="Email" width="24" height="24">
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>info@shinyrides.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <img src="icons/clock.svg" alt="Clock" width="24" height="24">
+                            </div>
+                            <div class="contact-text">
+                                <h3>Hours</h3>
+                                <p>Monday - Saturday: 8:00 AM - 7:00 PM</p>
+                                <p>Sunday: 8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <img src="icons/map.svg" alt="Location" width="24" height="24">
+                            </div>
+                            <div class="contact-text">
+                                <h3>Address</h3>
+                                <p>47391 Jefferson Ave, Chesterfield, MI 48047</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="location-map">
-                <div class="map-placeholder">
-                    <p>Map Integration Placeholder</p>
+                
+                <div class="contact-map">
+                    <h2>Our Location</h2>
+                    <div class="map-container">
+                        <div class="map-frame-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2936.436573038631!2d-82.8220550845362!3d42.6299189791694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88250e0a3a4710c9%3A0x6de55e672d53e32d!2s47391%20Jefferson%20Ave%2C%20Chesterfield%2C%20MI%2048047!5e0!3m2!1sen!2sus!4v1662500000000"
+                                width="100%"
+                                height="400"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Google Map location for Shiny Rides Carwash">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,12 +211,12 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Ready for a Shiny Ride?</h2>
-            <p>Book your car wash today and experience the difference professional care makes.</p>
-            <div class="cta-buttons">
-                <a href="washes.html" class="btn btn-primary">View Packages</a>
-                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-            </div>
+                <h2>Ready for a Shiny Ride?</h2>
+                <p>Book your car wash today and experience the difference professional care makes.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Location & Hours</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
         </div>
     </section>
 
@@ -189,7 +250,7 @@
                     <h4>Contact Info</h4>
                     <p>Phone: (555) 123-4567</p>
                     <p>Email: info@shinyrides.com</p>
-                    <p>Address: 123 Car Wash Lane<br>City, State 12345</p>
+                    <p>Address: 47391 Jefferson Ave<br>Chesterfield, MI 48047</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -199,5 +260,67 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Operating hours logic
+        function checkOperatingHours() {
+            const now = new Date();
+            const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentTime = currentHour * 60 + currentMinute; // Convert to minutes
+            
+            let isOpen = false;
+            let nextOpening = '';
+            
+            // Operating hours: Mon-Sat: 8AM-7PM, Sun: 8AM-6PM
+            if (currentDay === 0) { // Sunday
+                isOpen = currentTime >= 8 * 60 && currentTime < 18 * 60; // 8AM to 6PM
+                if (!isOpen) {
+                    if (currentTime < 8 * 60) {
+                        nextOpening = '8:00 AM today';
+                    } else {
+                        nextOpening = '8:00 AM Monday';
+                    }
+                }
+            } else { // Monday-Saturday
+                isOpen = currentTime >= 8 * 60 && currentTime < 19 * 60; // 8AM to 7PM
+                if (!isOpen) {
+                    if (currentTime < 8 * 60) {
+                        nextOpening = '8:00 AM today';
+                    } else {
+                        const tomorrow = new Date(now);
+                        tomorrow.setDate(tomorrow.getDate() + 1);
+                        const tomorrowDay = tomorrow.getDay();
+                        const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                        nextOpening = `8:00 AM ${dayNames[tomorrowDay]}`;
+                    }
+                }
+            }
+            
+            return { isOpen, nextOpening };
+        }
+        
+        function updateAnnouncement() {
+            const { isOpen, nextOpening } = checkOperatingHours();
+            const announcementText = document.getElementById('announcement-text');
+            const banner = document.getElementById('announcement-banner');
+            
+            if (isOpen) {
+                announcementText.textContent = 'Now Open in Chesterfield, MI';
+                banner.classList.add('open');
+                banner.classList.remove('closed');
+            } else {
+                announcementText.textContent = `Closed - Opening ${nextOpening}`;
+                banner.classList.add('closed');
+                banner.classList.remove('open');
+            }
+        }
+        
+        // Update announcement on page load
+        updateAnnouncement();
+        
+        // Update every minute
+        setInterval(updateAnnouncement, 60000);
+    </script>
 </body>
 </html> 
