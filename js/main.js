@@ -249,37 +249,65 @@ function initMobileVideo() {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
     if (isMobile) {
-        // Force video to load and play on mobile
-        video.load();
-        
-        // Handle video play promise for mobile browsers
-        const playPromise = video.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                // Video started playing successfully
-                console.log('Video playing on mobile');
-            }).catch(error => {
-                // Auto-play was prevented, try to play on user interaction
-                console.log('Auto-play prevented, waiting for user interaction');
-                
-                const playOnInteraction = () => {
-                    video.play().catch(e => console.log('Still cannot play:', e));
-                    document.removeEventListener('touchstart', playOnInteraction);
-                    document.removeEventListener('click', playOnInteraction);
-                };
-                
-                document.addEventListener('touchstart', playOnInteraction);
-                document.addEventListener('click', playOnInteraction);
-            });
-        }
-        
-        // Ensure video is muted for mobile autoplay
+        // Ensure video is muted for mobile autoplay (required by most mobile browsers)
         video.muted = true;
         
         // Add webkit-specific attributes for iOS
         video.setAttribute('webkit-playsinline', 'true');
         video.setAttribute('playsinline', 'true');
+        
+        // Force video to load
+        video.load();
+        
+        // Multiple attempts to autoplay with different strategies
+        const attemptAutoplay = async () => {
+            try {
+                // First attempt: direct play
+                await video.play();
+                console.log('Video autoplay successful on mobile');
+            } catch (error) {
+                console.log('First autoplay attempt failed, trying alternative method');
+                
+                try {
+                    // Second attempt: ensure muted and try again
+                    video.muted = true;
+                    video.volume = 0;
+                    await video.play();
+                    console.log('Video autoplay successful on second attempt');
+                } catch (secondError) {
+                    console.log('Second autoplay attempt failed, setting up interaction fallback');
+                    
+                    // Set up fallback for user interaction
+                    const playOnInteraction = async () => {
+                        try {
+                            await video.play();
+                            console.log('Video started on user interaction');
+                        } catch (e) {
+                            console.log('Failed to play on interaction:', e);
+                        }
+                        // Remove listeners after successful play
+                        document.removeEventListener('touchstart', playOnInteraction);
+                        document.removeEventListener('click', playOnInteraction);
+                        document.removeEventListener('scroll', playOnInteraction);
+                    };
+                    
+                    // Listen for various user interactions
+                    document.addEventListener('touchstart', playOnInteraction, { once: true });
+                    document.addEventListener('click', playOnInteraction, { once: true });
+                    document.addEventListener('scroll', playOnInteraction, { once: true });
+                }
+            }
+        };
+        
+        // Start autoplay attempt
+        attemptAutoplay();
+        
+        // Additional attempt when page becomes visible (for background tabs)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && video.paused) {
+                setTimeout(attemptAutoplay, 100);
+            }
+        });
     }
 }
 
