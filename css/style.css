@@ -6,9 +6,9 @@
 }
 
 :root {
-    --primary-blue: #1E40AF;
-    --primary-blue-light: #3B82F6;
-    --primary-blue-dark: #1E3A8A;
+    --primary-blue: #0087b5;
+    --primary-blue-light: #0099cc;
+    --primary-blue-dark: #006699;
     --white: #FFFFFF;
     --light-gray: #F8FAFC;
     --gray: #64748B;
@@ -38,7 +38,7 @@ body {
     font-weight: 500;
     font-size: 0.9rem;
     transition: var(--transition);
-    margin-top: 75px;
+    margin-top: 95px;
 }
 
 .announcement-banner.open {
@@ -163,6 +163,18 @@ p {
     align-items: center;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
 .nav-logo h2 {
     color: var(--primary-blue);
     margin: 0;
@@ -239,7 +251,7 @@ p {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 80px;
+    padding: 140px 0 80px;
     color: var(--white);
     position: relative;
     overflow: hidden;
@@ -274,13 +286,18 @@ p {
     perspective: 1000;
 }
 
+/* Dark tint for hero background image */
+.hero-background-gif {
+    filter: brightness(0.5) contrast(1.1);
+}
+
 .hero-video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(30, 64, 175, 0.3);
+    background: rgba(0, 135, 181, 0.3);
     z-index: 1;
 }
 
@@ -294,7 +311,7 @@ p {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4.55rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -1145,7 +1162,7 @@ section {
 
 .slider-button:hover {
     transform: translate(-50%, -50%) scale(1.1);
-    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 135, 181, 0.3);
 }
 
 .slider-button:active {
@@ -1555,11 +1572,6 @@ section {
         line-height: 1.6;
     }
 
-    .about-business-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
     .about-business-img {
         width: 100%;
@@ -1572,6 +1584,65 @@ section {
     .about-business-img:hover {
         transform: scale(1.02);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Image Controls */
+    .image-controls {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .about-business-image:hover .image-controls {
+        opacity: 1;
+    }
+
+    .image-btn {
+        background: var(--white);
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--primary-blue);
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+    }
+
+    .image-btn:hover {
+        background: var(--primary-blue);
+        color: var(--white);
+        transform: scale(1.1);
+    }
+
+    .image-indicator {
+        color: var(--white);
+        font-size: 0.9rem;
+        font-weight: 500;
+        min-width: 40px;
+        text-align: center;
+    }
+
+    .about-business-image {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .about-content {
@@ -1803,7 +1874,7 @@ section {
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3.25rem;
     }
 
     .hero-buttons {
@@ -1880,7 +1951,7 @@ section {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.6rem;
     }
 
     .hero-subtitle {

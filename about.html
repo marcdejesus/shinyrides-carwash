@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about ShinyRides Car Wash - our story, mission, team, and commitment to professional car care services.">
-    <meta name="keywords" content="about car wash, car wash company, car wash team, car wash history">
-    <title>About Us - ShinyRides Car Wash</title>
+    <meta name="description" content="Learn about Bayside Carwash - our story, mission, team, and commitment to professional car care services.">
+    <meta name="keywords" content="about car wash, car wash company, car wash team, car wash history, bayside carwash">
+    <title>About Us - Bayside Carwash</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -29,7 +29,8 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>ShinyRides</h2>
+                <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img">
+                <h2>Bayside Carwash</h2>
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
@@ -71,11 +72,17 @@
             <div class="about-business-content">
                 <div class="about-business-info">
                     <h2>Our Story</h2>
-                    <p class="about-business-description">Founded in 2025, ShinyRides is a family-owned and operated car wash dedicated to providing exceptional service at competitive prices. We work hard every day to ensure your vehicle receives the best care possible.</p>
+                    <p class="about-business-description">Acquired in 2025, Bayside Carwash is proud to be under new family ownership, bringing a fresh commitment to quality and community. We’ve invested in brand-new, state-of-the-art equipment to give your vehicle the ultimate clean and shine it deserves.
+                        Our family operates the car wash with one goal in mind: to provide exceptional service, honest care, and a satisfying wash every single time.</p>
                     <p class="about-business-description">Please leave a review on Google and let us know about your experience!</p>
                 </div>
                 <div class="about-business-image">
-                    <img src="images/carwash.jpg" alt="ShinyRides Car Wash Facility" class="about-business-img">
+                    <img src="images/entrance.png" alt="Bayside Carwash Facility" class="about-business-img" id="facility-image">
+                    <div class="image-controls">
+                        <button class="image-btn" id="prev-btn" aria-label="Previous image">‹</button>
+                        <span class="image-indicator" id="image-indicator">1 / 2</span>
+                        <button class="image-btn" id="next-btn" aria-label="Next image">›</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,7 +165,7 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Ready for a Shiny Ride?</h2>
+                <h2>Ready for Bayside Service?</h2>
             <p>Book your car wash today and experience the difference professional care makes.</p>
             <div class="cta-buttons">
                 <a href="contact.html" class="btn btn-primary">Location & Hours</a>
@@ -172,7 +179,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>ShinyRides</h3>
+                    <h3>Bayside Carwash</h3>
                     <p>Professional car care services with a commitment to quality and environmental responsibility.</p>
                 </div>
                 <div class="footer-section">
@@ -196,12 +203,12 @@
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <p>Phone: (555) 123-4567</p>
-                    <p>Email: info@shinyrides.com</p>
+                    <p>Email: info@baysidecarwash.com</p>
                     <p>Address: 47391 Jefferson Ave<br>Chesterfield, MI 48047</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 ShinyRides Car Wash. All rights reserved.</p>
+                <p>&copy; 2024 Bayside Carwash. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -253,7 +260,7 @@
             const banner = document.getElementById('announcement-banner');
             
             if (isOpen) {
-                announcementText.textContent = 'Now Open in Chesterfield, MI';
+                announcementText.textContent = 'Now Open at Bayside Carwash';
                 banner.classList.add('open');
                 banner.classList.remove('closed');
             } else {
@@ -268,6 +275,39 @@
         
         // Update every minute
         setInterval(updateAnnouncement, 60000);
+        
+        // Image cycling functionality
+        const images = ['images/entrance.png', 'images/exit.png'];
+        const imageAlt = ['Bayside Carwash Entrance', 'Bayside Carwash Exit'];
+        let currentImageIndex = 0;
+        
+        const facilityImage = document.getElementById('facility-image');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const imageIndicator = document.getElementById('image-indicator');
+        
+        function updateImage() {
+            facilityImage.src = images[currentImageIndex];
+            facilityImage.alt = imageAlt[currentImageIndex];
+            imageIndicator.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+        
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateImage();
+        }
+        
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', showNextImage);
+        prevBtn.addEventListener('click', showPrevImage);
+        
+        // Initialize
+        updateImage();
     </script>
 </body>
 </html> 
