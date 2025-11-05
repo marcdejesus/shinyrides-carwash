@@ -5,6 +5,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/favicon.ico",
+      "destination": "/icons/favicon.ico"
+    },
+    {
       "source": "/washes",
       "destination": "/washes.html"
     },
