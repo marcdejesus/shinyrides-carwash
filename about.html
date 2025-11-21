@@ -22,14 +22,34 @@
     
     <title>About Us - Bayside Carwash</title>
     <link rel="canonical" href="/about">
+    <!-- Resource Preloading -->
+    <link rel="preload" href="images/bayside.webp" as="image" type="image/webp">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.baysidecarwash.com/icons/favicon.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0087b5">
+    
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
 </head>
 <body>
     <!-- Background Bubbles Animation -->
@@ -48,7 +68,10 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img">
+                <picture>
+                    <source srcset="images/bayside.webp" type="image/webp">
+                    <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img" width="120" height="60">
+                </picture>
                 <h2>Bayside Carwash</h2>
             </div>
             <ul class="nav-menu" id="nav-menu">
@@ -99,7 +122,10 @@
                     <p class="about-business-description">Please leave a review on Google and let us know about your experience!</p>
                 </div>
                 <div class="about-business-image">
-                    <img src="images/entrance.png" alt="Bayside Carwash Facility" class="about-business-img" id="facility-image">
+                    <picture>
+                        <source srcset="images/entrance.webp" type="image/webp">
+                        <img src="images/entrance.png" alt="Bayside Carwash Facility" class="about-business-img" id="facility-image" loading="lazy">
+                    </picture>
                     <div class="image-controls">
                         <button class="image-btn" id="prev-btn" aria-label="Previous image">‹</button>
                         <span class="image-indicator" id="image-indicator">1 / 2</span>
@@ -295,7 +321,8 @@
         setInterval(updateAnnouncement, 60000);
         
         // Image cycling functionality
-        const images = ['images/entrance.png', 'images/exit.png'];
+        const images = ['images/entrance.webp', 'images/exit.webp'];
+        const imageFallbacks = ['images/entrance.png', 'images/exit.png'];
         const imageAlt = ['Bayside Carwash Entrance', 'Bayside Carwash Exit'];
         let currentImageIndex = 0;
         
@@ -305,7 +332,11 @@
         const imageIndicator = document.getElementById('image-indicator');
         
         function updateImage() {
-            facilityImage.src = images[currentImageIndex];
+            // Update the picture element with WebP and fallback
+            const picture = facilityImage.closest('picture');
+            const source = picture.querySelector('source');
+            source.srcset = images[currentImageIndex];
+            facilityImage.src = imageFallbacks[currentImageIndex];
             facilityImage.alt = imageAlt[currentImageIndex];
             imageIndicator.textContent = `${currentImageIndex + 1} / ${images.length}`;
         }

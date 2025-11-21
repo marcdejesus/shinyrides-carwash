@@ -6,14 +6,34 @@
     <meta name="description" content="Page not found - Bayside Carwash">
     <meta name="robots" content="noindex, nofollow">
     <title>404 - Page Not Found | Bayside Carwash</title>
+    <!-- Resource Preloading -->
+    <link rel="preload" href="images/bayside.webp" as="image" type="image/webp">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.baysidecarwash.com/icons/favicon.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0087b5">
+    
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
 </head>
 <body>
     <!-- Background Bubbles Animation -->
@@ -32,7 +52,10 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img">
+                <picture>
+                    <source srcset="images/bayside.webp" type="image/webp">
+                    <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img" width="120" height="60">
+                </picture>
                 <h2>Bayside Carwash</h2>
             </div>
             <ul class="nav-menu" id="nav-menu">

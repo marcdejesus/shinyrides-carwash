@@ -22,14 +22,36 @@
     
     <title>Car Wash Packages - Bayside Carwash</title>
     <link rel="canonical" href="/washes">
+    <!-- Resource Preloading -->
+    <link rel="preload" href="images/bayside.webp" as="image" type="image/webp">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//shiny-ride.helcim.app">
+    <link rel="dns-prefetch" href="//subscriptions.helcim.com">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.baysidecarwash.com/icons/favicon.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0087b5">
+    
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
 </head>
 <body>
     <!-- Background Bubbles Animation -->
@@ -48,7 +70,10 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img">
+                <picture>
+                    <source srcset="images/bayside.webp" type="image/webp">
+                    <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img" width="120" height="60">
+                </picture>
                 <h2>Bayside Carwash</h2>
             </div>
             <ul class="nav-menu" id="nav-menu">
@@ -93,6 +118,14 @@
             <h2 class="section-title">Pricing & Value</h2>
             <p class="section-subtitle">Competitive pricing with exceptional value. All washes come with <strong>hand towel dry</strong> and <strong>free vacuum</strong>.</p>
             <div class="pricing-grid">
+                <!-- Skeleton loader for slow connections -->
+                <div class="skeleton-card skeleton" id="skeleton-loader" style="display: none;">
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+                
                 <div class="pricing-card">
                     <h3>Express</h3>
                     <div class="price">$8</div>
@@ -171,11 +204,11 @@
                 <div class="compare-slider" id="compareSlider">
                     <div class="compare-image-container">
                         <!-- Clean car image (background) -->
-                        <img src="images/cleancar.webp" alt="Clean Car" class="compare-image compare-image-clean">
+                        <img data-src="images/cleancar.webp" alt="Clean Car" class="compare-image compare-image-clean lazy" loading="lazy">
                         
                         <!-- Dirty car image (clipped) -->
                         <div class="compare-image-wrapper" id="dirtyImageWrapper">
-                            <img src="images/dirtycar.webp" alt="Dirty Car" class="compare-image compare-image-dirty">
+                            <img data-src="images/dirtycar.webp" alt="Dirty Car" class="compare-image compare-image-dirty lazy" loading="lazy">
                         </div>
                         
                         <!-- Slider handle -->

@@ -22,14 +22,316 @@
     
     <title>Bayside Carwash - Professional Auto Care Services</title>
     <link rel="canonical" href="/">
+    <!-- Resource Preloading -->
+    <link rel="preload" href="images/bayside.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/bluecar.webp" as="image" type="image/webp">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//shiny-ride.helcim.app">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="https://www.baysidecarwash.com/icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.baysidecarwash.com/icons/favicon.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0087b5">
+    
+    <!-- Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical CSS Inline -->
+    <style>
+/* Critical CSS - Above the fold styles */
+:root {
+    --primary-blue: #0087b5;
+    --primary-blue-light: #0099cc;
+    --primary-blue-dark: #006699;
+    --white: #FFFFFF;
+    --light-gray: #F8FAFC;
+    --gray: #64748B;
+    --dark-gray: #334155;
+    --black: #1E293B;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--black);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+/* Navigation - Critical */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: var(--transition);
+    height: 95px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.nav-logo-img {
+    height: 60px;
+    width: auto;
+}
+
+.nav-logo h2 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-blue);
+}
+
+.nav-cta-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-cta-btn:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+}
+
+/* Announcement Banner */
+.announcement-banner {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 0.75rem 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-top: 95px;
+}
+
+/* Hero Section - Critical */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    overflow: hidden;
+}
+
+.hero-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero-video-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.5) contrast(1.1);
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 135, 181, 0.3);
+    z-index: 1;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 4.55rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    color: var(--white);
+}
+
+/* Buttons - Critical */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Mobile Navigation */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--black);
+    transition: var(--transition);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 95px;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: var(--shadow-lg);
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-cta-btn {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+    </style>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/animations.css"></noscript>
 </head>
 <body>
     
@@ -38,7 +340,10 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img">
+                <picture>
+                    <source srcset="images/bayside.webp" type="image/webp">
+                    <img src="images/bayside.png" alt="Bayside Carwash Logo" class="nav-logo-img" width="120" height="60">
+                </picture>
                 <h2>Bayside Carwash</h2>
             </div>
             <ul class="nav-menu" id="nav-menu">
@@ -81,7 +386,10 @@
     <section class="hero">
         <!-- GIF Background for Hero Only -->
         <div class="hero-video-background">
-            <img src="images/bluecar.png" alt="Car wash background" class="hero-background-gif">
+            <picture>
+                <source srcset="images/bluecar.webp" type="image/webp">
+                <img src="images/bluecar.png" alt="Car wash background" class="hero-background-gif">
+            </picture>
             <div class="hero-video-overlay"></div>
         </div>
         
@@ -122,7 +430,7 @@
                     <p>At Bayside Carwash, our guarantee is our commitment to a higher standard of clean. We finish every wash with a careful hand-cleaning process because we know that's what it takes to deliver a flawless, showroom-quality finish. It's not just clean; it's guaranteed Bayside quality.</p>
                 </div>
                 <div class="banner-image">
-                    <img src="images/car-wash-wipe-down.webp" alt="Professional Car Care">
+                    <img data-src="images/car-wash-wipe-down.webp" alt="Professional Car Care" class="lazy" loading="lazy">
                 </div>
             </div>
         </div>

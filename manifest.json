@@ -1,0 +1,28 @@
+{
+  "name": "Bayside Carwash - Professional Auto Care",
+  "short_name": "Bayside Carwash",
+  "description": "Professional car wash services with modern technology. Convenient, quality, and eco-friendly car care solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0087b5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/bayside.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "automotive"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

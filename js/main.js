@@ -241,6 +241,122 @@ function initTooltips() {
 // Initialize tooltips on page load
 document.addEventListener('DOMContentLoaded', initTooltips);
 
+// Lazy loading implementation
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            img.classList.add('loaded');
+        });
+    }
+}
+
+// Connection-aware loading
+function initConnectionAwareFeatures() {
+    if ('connection' in navigator) {
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const slowConnection = connection && (
+            connection.effectiveType === 'slow-2g' || 
+            connection.effectiveType === '2g' || 
+            connection.saveData
+        );
+        
+        if (slowConnection) {
+            document.body.classList.add('slow-connection');
+            
+            // Show skeleton loaders for slow connections
+            const skeletonLoaders = document.querySelectorAll('#skeleton-loader');
+            skeletonLoaders.forEach(loader => {
+                loader.style.display = 'block';
+                // Hide after content loads
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 2000);
+            });
+            
+            // Disable animations for slow connections
+            const style = document.createElement('style');
+            style.textContent = `
+                .slow-connection * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+                .slow-connection .skeleton {
+                    animation-duration: 1.5s !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+}
+
+// Performance monitoring
+function initPerformanceMonitoring() {
+    if ('PerformanceObserver' in window) {
+        // Monitor Largest Contentful Paint
+        const lcpObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime);
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+        
+        // Monitor First Input Delay
+        const fidObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach(entry => {
+                console.log('FID:', entry.processingStart - entry.startTime);
+            });
+        });
+        fidObserver.observe({ entryTypes: ['first-input'] });
+    }
+}
+
+// Service Worker Registration
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered successfully:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
+        });
+    }
+}
+
+// Initialize performance features
+document.addEventListener('DOMContentLoaded', () => {
+    initLazyLoading();
+    initConnectionAwareFeatures();
+    initPerformanceMonitoring();
+    registerServiceWorker();
+});
+
 // Mobile video/GIF background fixes
 function initMobileVideo() {
     const video = document.querySelector('.hero-video-background video');
