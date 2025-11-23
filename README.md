@@ -1,6 +1,30 @@
-# ShinyRides Car Wash Website
+# Bayside Carwash Website
 
-A modern, responsive car wash website built with HTML5, CSS3, and JavaScript. This website showcases professional car care services with a clean, modern design and interactive features.
+A modern, responsive car wash website built with HTML5, CSS3, and JavaScript, featuring a full-stack admin dashboard for managing packages and pricing. This website showcases professional car care services with a clean, modern design and interactive features.
+
+## 🚀 New: Admin Dashboard
+
+This project now includes a **full-stack admin dashboard** for managing car wash packages!
+
+### Quick Links
+- 📖 **[Quick Start Guide](QUICK_START.md)** - Get up and running in 5 minutes
+- 🚀 **[Deployment Guide](DEPLOYMENT_GUIDE.md)** - Comprehensive deployment instructions
+- 📊 **[Implementation Summary](IMPLEMENTATION_SUMMARY.md)** - Complete feature overview
+
+### Admin Features
+- 🔐 Secure JWT-based authentication
+- 📦 Full CRUD operations for packages (Create, Read, Update, Delete)
+- 💰 Manage pricing for single washes and memberships
+- ✨ Add/edit/remove features for each package
+- 🎯 Set featured packages and display order
+- 🔗 Manage subscription URLs
+- 📱 Responsive admin interface
+- 🗄️ Neon Serverless Postgres database
+- ⚡ Vercel serverless functions
+
+### Access
+- **Admin Dashboard:** `/admin`
+- **Public Washes Page:** `/washes` (now loads data from database)
 
 ## 🌟 Features
 
@@ -19,10 +43,12 @@ A modern, responsive car wash website built with HTML5, CSS3, and JavaScript. Th
    - Location information and contact details
 
 2. **Washes Page** (`washes.html`)
-   - Three wash packages: Basic ($15), Premium ($25), Deluxe ($40)
+   - Dynamic package loading from database
+   - Four wash packages: Express, Deluxe, Ultimate, Platinum
    - Detailed service descriptions for each package
-   - Pricing comparison with feature lists
-   - Call-to-action buttons for booking
+   - Single wash and membership pricing
+   - Call-to-action buttons with subscription links
+   - Fallback to hardcoded data if API unavailable
 
 3. **Detailing Page** (`detailing.html`)
    - Interior, exterior, and engine cleaning services
@@ -51,29 +77,74 @@ A modern, responsive car wash website built with HTML5, CSS3, and JavaScript. Th
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- No additional software required - this is a static website
-
-### Installation
+### For Viewing the Website
 1. Clone or download the project files
 2. Open `index.html` in your web browser
 3. Navigate through the website using the navigation menu
 
+### For Setting Up Admin Dashboard
+
+**Prerequisites:**
+- Node.js 18+ installed
+- Neon account (free tier available)
+- Vercel account (free tier available)
+
+**Quick Setup:**
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your Neon connection string and JWT secret
+
+# 3. Run database migration
+npm run migrate
+
+# 4. Deploy to Vercel
+vercel --prod
+```
+
+📖 **See [QUICK_START.md](QUICK_START.md) for detailed instructions**
+
 ### File Structure
 ```
-shinyrides-carwash/
+bayside-carwash/
 ├── index.html              # Home page
-├── washes.html             # Car wash packages page
+├── washes.html             # Car wash packages page (dynamic)
 ├── detailing.html          # Auto detailing services page
 ├── contact.html            # Contact information and form
 ├── about.html              # About us page
+├── admin.html              # Admin dashboard
+├── api/                    # Serverless API endpoints
+│   ├── auth/               # Authentication endpoints
+│   │   ├── login.js        # Admin login
+│   │   ├── verify.js       # Token verification
+│   │   └── setup.js        # Initial admin setup
+│   └── packages/           # Package CRUD endpoints
+│       ├── index.js        # GET all, POST new
+│       └── [id].js         # GET, PUT, DELETE by ID
+├── lib/                    # Shared utilities
+│   ├── db.js               # Database connection
+│   └── auth.js             # Authentication utilities
+├── scripts/                # Utility scripts
+│   └── migrate-data.js     # Database migration
+├── sql/                    # Database schemas
+│   ├── schema.sql          # Database schema
+│   └── seed.sql            # Seed data
 ├── css/
 │   ├── style.css           # Main stylesheet
 │   └── animations.css      # Animation styles
 ├── js/
-│   └── main.js             # JavaScript functionality
-└── README.md               # Project documentation
+│   ├── main.js             # Main JavaScript
+│   ├── admin.js            # Admin dashboard logic
+│   └── washes.js           # Dynamic package loading
+├── package.json            # Node.js dependencies
+├── vercel.json             # Vercel configuration
+├── README.md               # This file
+├── QUICK_START.md          # Quick setup guide
+├── DEPLOYMENT_GUIDE.md     # Detailed deployment guide
+└── IMPLEMENTATION_SUMMARY.md  # Feature summary
 ```
 
 ## 🎨 Customization
@@ -146,10 +217,52 @@ The website is fully responsive with breakpoints at:
 - Scroll animations
 - Interactive effects
 
+## 🔐 Security
+
+The admin dashboard implements:
+- JWT-based authentication with 7-day expiration
+- Bcrypt password hashing (10 rounds)
+- Protected API endpoints
+- SQL injection prevention
+- Environment variable protection
+- CORS configuration
+
+## 🛠️ Tech Stack
+
+### Frontend
+- HTML5, CSS3, JavaScript (ES6+)
+- Responsive design with CSS Grid and Flexbox
+- No frontend framework dependencies
+
+### Backend
+- Vercel Serverless Functions (Node.js)
+- Neon Serverless Postgres
+- JWT for authentication
+- Bcrypt for password hashing
+
+### Deployment
+- Vercel (frontend + serverless functions)
+- Neon (database)
+
+## 📚 Documentation
+
+- **[QUICK_START.md](QUICK_START.md)** - 5-minute setup guide
+- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Complete deployment instructions
+- **[README_DATABASE_SETUP.md](README_DATABASE_SETUP.md)** - Database setup details
+- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Feature overview
+
+## 🆘 Support
+
+For issues or questions:
+1. Check the [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) troubleshooting section
+2. Review Vercel logs: `vercel logs`
+3. Check Neon database logs in the console
+4. Verify environment variables are set correctly
+
 ## 📄 License
 
-This website is owned by Shiny Rides Car Wash and protected under the MIT License. The code is accessible for educational purposes and for future developers.
+This website is owned by Bayside Carwash and protected under the MIT License. The code is accessible for educational purposes and for future developers.
 
 ---
 
-**ShinyRides Car Wash** - Professional car care services with a commitment to quality and environmental responsibility. 
+**Bayside Carwash** - Professional car care services with a commitment to quality and environmental responsibility. 

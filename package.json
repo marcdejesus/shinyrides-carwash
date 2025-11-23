@@ -1,0 +1,27 @@
+{
+  "name": "shinyrides-carwash",
+  "version": "1.0.0",
+  "description": "Bayside Carwash website with admin dashboard",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "node scripts/migrate-data.js"
+  },
+  "type": "module",
+  "keywords": [
+    "carwash",
+    "admin",
+    "dashboard"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^17.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  }
+}

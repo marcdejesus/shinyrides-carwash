@@ -117,78 +117,14 @@
         <div class="container">
             <h2 class="section-title">Pricing & Value</h2>
             <p class="section-subtitle">Competitive pricing with exceptional value. All washes come with <strong>hand towel dry</strong> and <strong>free vacuum</strong>.</p>
-            <div class="pricing-grid">
-                <!-- Skeleton loader for slow connections -->
-                <div class="skeleton-card skeleton" id="skeleton-loader" style="display: none;">
-                    <div class="skeleton skeleton-text"></div>
-                    <div class="skeleton skeleton-text"></div>
-                    <div class="skeleton skeleton-text"></div>
-                    <div class="skeleton skeleton-text"></div>
+            <div class="pricing-grid" id="pricingGrid">
+                <!-- Loading state -->
+                <div class="pricing-card" id="loadingCard">
+                    <h3>Loading packages...</h3>
+                    <p>Please wait while we load our car wash packages.</p>
                 </div>
                 
-                <div class="pricing-card">
-                    <h3>Express</h3>
-                    <div class="price">$8</div>
-                    <p>Quick and efficient basic wash</p>
-                    <ul>
-                        <li>Exterior Wash</li>
-                        <li>Bug Remover</li>
-                        <li>Manual hand dry</li>
-                        <li>Free Vacuum</li>
-                    </ul>
-                    <div class="unlimited-price">
-                        <span class="unlimited-label">Unlimited Membership:</span>
-                        <span class="unlimited-amount">$19.95/month</span>
-                    </div>
-                    <a href="https://subscriptions.helcim.com/subscribe/fgf611yoa5halqhpu9xnk7ne2ywdj" class="btn btn-primary subscription-btn" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Deluxe</h3>
-                    <div class="price">$11</div>
-                    <p>Enhanced cleaning with premium features</p>
-                    <ul>
-                        <li>Everything in Express</li>
-                        <li>Tire Scrub</li>
-                        <li>Triple Foam Conditioner</li>
-                    </ul>
-                    <div class="unlimited-price">
-                        <span class="unlimited-label">Unlimited Membership:</span>
-                        <span class="unlimited-amount">$26.95/month</span>
-                    </div>
-                    <a href="https://subscriptions.helcim.com/subscribe/fy33xvbst8mt14bxb26dnkkteovrz" class="btn btn-primary subscription-btn" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Ultimate</h3>
-                    <div class="price">$15</div>
-                    <p>Complete care with maximum protection</p>
-                    <ul>
-                        <li>Everything in Deluxe and Express</li>
-                        <li>Wheel Cleaner</li>
-                        <li>Triple Foam Conditioner w/ Wax</li>
-                        <li>Under Body Wash</li>
-                    </ul>
-                    <div class="unlimited-price">
-                        <span class="unlimited-label">Unlimited Membership:</span>
-                        <span class="unlimited-amount">$33.95/month</span>
-                    </div>
-                    <a href="https://subscriptions.helcim.com/subscribe/fgce5ftrwg4z3ddxjkjgd8xnahomk" class="btn btn-primary subscription-btn" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="popular-badge">Most Value</div>
-                    <h3>Platinum</h3>
-                    <div class="price">$20</div>
-                    <p>Ultimate care with all premium features</p>
-                    <ul>
-                        <li>Everything in Ultimate, Deluxe, and Express</li>
-                        <li>Tire Shine</li>
-                        <li>Tire Cleaner</li>
-                    </ul>
-                    <div class="unlimited-price">
-                        <span class="unlimited-label">Unlimited Membership:</span>
-                        <span class="unlimited-amount">$38.99/month</span>
-                    </div>
-                    <a href="https://subscriptions.helcim.com/subscribe/f45b2d5ug0g7r2csigevm7gok1j90" class="btn btn-primary subscription-btn" target="_blank" rel="noopener noreferrer">Subscribe Now</a>
-                </div>
+                <!-- Packages will be dynamically loaded from database via js/washes.js -->
             </div>
             
         </div>
@@ -282,6 +218,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/washes.js"></script>
     <script>
         // Operating hours logic
         function checkOperatingHours() {
